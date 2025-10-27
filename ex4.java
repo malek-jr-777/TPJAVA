@@ -1,88 +1,50 @@
-package tpex4;
+package tp3;
+
 import java.util.Scanner;
+
 public class ex4 {
-	
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-	
+        
+        System.out.print("Entrez le nombre d'élèves : ");
+        int n = input.nextInt();
 
-	public class calculatrice {
+        double[] notes = new double[n];
+        double somme = 0;
+        double max, min;
 
-	public static void main(String[] args) {
+        
+        for (int i = 0; i < n; i++) {
+            System.out.print("Note de l'élève " + (i + 1) + " (sur 20) : ");
+            notes[i] = input.nextDouble();
+            somme += notes[i];
+        }
 
-	try (Scanner input = new Scanner(System.in)) {
-		System.out.print("Entrez le premier nombre : ");
+       
+        max = notes[0];
+        min = notes[0];
 
-		double a = input.nextDouble();
+        
+        for (int i = 1; i < n; i++) {
+            if (notes[i] > max) {
+                max = notes[i];
+            }
+            if (notes[i] < min) {
+                min = notes[i];
+            }
+        }
 
+        
+        double moyenne = somme / n;
 
+       
+        System.out.println("\n--- Résultats ---");
+        System.out.println("Somme des notes : " + somme);
+        System.out.println("Note la plus élevée : " + max);
+        System.out.println("Note la plus basse : " + min);
+        System.out.println("Moyenne de la classe : " + moyenne);
 
-		System.out.print("Entrez l'opérateur (+, -, *, /) : ");
-
-		char operateur = input.next().charAt(0);
-
-
-
-		System.out.print("Entrez le deuxième nombre : ");
-
-		double b = input.nextDouble();
-
-		double resultat = 0;
-
-		boolean operationValide = true;
-
-		switch (operateur) {
-
-		case '+':
-
-		resultat = a + b;
-
-		break;
-
-		case '-':
-
-		resultat = a - b;
-
-		break;
-
-		case '*':
-
-		resultat = a * b;
-
-		break;
-
-		case '/':
-
-		if (b != 0) {
-
-		resultat = a / b;
-
-		} else {
-
-		System.out.println("Erreur : Division par zéro !");
-
-		operationValide = false;
-
-		}
-
-		break;
-
-		default:
-
-		System.out.println("Erreur : Opérateur invalide !");
-
-		operationValide = false;
-
-		}
-
-		if (operationValide) {
-
-		System.out.println("Résultat : " + a + " " + operateur + " " + b + " = " + resultat);
-
-		}
-	}
-
-	}
-
-	}
-
+      
+    }
 }
