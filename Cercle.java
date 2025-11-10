@@ -1,21 +1,29 @@
-package tp2crcl;
+package TP4;
+
+
 
 public class Cercle {
-	double r;
-	final double pi=3.14;
-	
-	
-	public Cercle(double a) {
-		this.r=a;}
-	
-	
-	public double crclsurf() {
-		
-		return pi*r*r ;
 
-		
-	}
-	
+    Point centre;
+    Double rayon;
 
-		
+    public Cercle(Point centre, Double rayon) {
+        this.centre = centre;
+        this.rayon = rayon;
+    }
+
+    public Double perimetre() {
+        return 2 * Math.PI * rayon;
+    }
+
+    public Double surface() {
+        return Math.PI * rayon * rayon;
+    }
+
+    public void afficher() {
+        System.out.println("Centre : (" + centre.ab+ " , " + centre.ord + ")");
+        System.out.println("Rayon : " + rayon);
+        System.out.println("Perimetre : " + perimetre());
+        System.out.println("Surface : " + surface());
+    }
 }
